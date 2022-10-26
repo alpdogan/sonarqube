@@ -4,10 +4,11 @@ services:
   sonarqube:
     platform: linux/amd64
     image: sonarqube
+    restart: always
     expose:
-      - 9005
+      - 80
     ports:
-      - "9005:9000"
+      - "80:9000"
     networks:
       - sonarnet
     environment:
@@ -24,6 +25,7 @@ services:
   db:
     platform: linux/amd64
     image: postgres
+    restart: always
     networks:
       - sonarnet
     environment:

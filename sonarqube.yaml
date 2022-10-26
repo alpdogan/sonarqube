@@ -3,10 +3,11 @@ version: "3"
 services:
   sonarqube:
     image: sonarqube
+    restart: always
     expose:
-      - 9005
+      - 80
     ports:
-      - "9005:9000"
+      - "80:9000"
     networks:
       - sonarnet
     environment:
@@ -21,6 +22,7 @@ services:
 
   db:
     image: postgres
+    restart: always
     networks:
       - sonarnet
     environment:
